@@ -1,9 +1,21 @@
 # StampDutyApp
 
 Getting Started
+
+Installing Cordova
+```sh
+$ npm install -g cordova
+```
+
 Clone GIT Repo
-```git
-clone git https://github.com/Gabrieltay/StampDutyApp.git
+```sh
+$ clone git https://github.com/Gabrieltay/StampDutyApp.git
+```
+
+Running via Browser
+```sh
+$ cd StampDutyApp
+$ cordova run browser
 ```
 
 ### Requirements:
