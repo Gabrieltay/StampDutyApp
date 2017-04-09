@@ -33,7 +33,7 @@ $ cordova run browser
 * [Visual Code](https://code.visualstudio.com/) Visual Code Editor
 * [Cordova](https://cordova.apache.org) Cordova Getting Started
 * [QUnit](https://qunitjs.com/) JavaScript Unit Testing Framework
-* [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) Markdown Cheatsheet
+* [Markdown](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf) Markdown Cheatsheet
 * [Emoji](https://www.webpagefx.com/tools/emoji-cheat-sheet/) Markdown Emoji
 
 ## Happy Coding :thumbsup:
