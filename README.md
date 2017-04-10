@@ -9,7 +9,7 @@ $ npm install -g cordova
 
 Clone GIT Repo
 ```sh
-$ clone git https://github.com/Gabrieltay/StampDutyApp.git
+$ git clone https://github.com/Gabrieltay/StampDutyApp.git
 ```
 
 Running via Browser
