@@ -32,6 +32,7 @@ $ cordova run browser
 ### References 
 * [Visual Code](https://code.visualstudio.com/) Visual Code Editor
 * [Cordova](https://cordova.apache.org) Cordova Getting Started
+* [Onsen UI](https://onsen.io/) UI Framework
 * [QUnit](https://qunitjs.com/) JavaScript Unit Testing Framework
 * [Markdown](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf) Markdown Cheatsheet
 * [Emoji](https://www.webpagefx.com/tools/emoji-cheat-sheet/) Markdown Emoji
