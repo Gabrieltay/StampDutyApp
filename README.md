@@ -28,6 +28,10 @@ $ cordova run browser
 * Set the JAVA_HOME environment variable to the location of your JDK installation
 * Set the ANDROID_HOME environment variable to the location of your Android SDK installation
 * Add Android SDK's tools and platform-tools directories to your PATH
+* Configure Android License when prompt
+```sh
+$ android update sdk --no-ui --filter build-tools-24.0.2,android-24,extra-android-m2repository
+```
 
 ### References 
 * [Visual Code](https://code.visualstudio.com/) Visual Code Editor
