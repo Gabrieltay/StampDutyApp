@@ -61,7 +61,13 @@ function calculateABSD(valuation, residentType, propertyCount) {
     return payable;
 }
 
-function compute() {
+// Calculate Seller Stamp Duty
+//function calculateSSD(purchaseDate, sellingDate, valuation)
+//{
+ //   if ( )
+//}
+
+function computeBSD() {
     var stampDutyEl = document.getElementById('stampDuty');
     var valuation = document.getElementById('value').value;
     var propCountEl = document.getElementById("propCount");
@@ -74,14 +80,14 @@ function compute() {
 }
 
 var valueEl = document.getElementById('value');
-valueEl.addEventListener('change', compute, false);
+valueEl.addEventListener('change', computeBSD, false);
 
 var propCountEl = document.getElementById('propCount');
-propCountEl.addEventListener('change', compute, false);
+propCountEl.addEventListener('change', computeBSD, false);
 
 var residentTypeEls = document.getElementsByName('residentRb')
 residentTypeEls.forEach(function(element) {
-    element.addEventListener('change', compute, false);
+    element.addEventListener('change', computeBSD, false);
 }, this);
 
-compute()
+computeBSD()

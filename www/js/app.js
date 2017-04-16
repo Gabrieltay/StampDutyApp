@@ -7,35 +7,23 @@ const QUANTUM = 180000;
 // Calculate Buyer Stamp Duty
 function calculateBSD(valuation) {
     var payable = 0;
-
     // First Tier - First $180,000
     payable += ((valuation > QUANTUM) ? QUANTUM : valuation) * FIRST_TIER;
 
-    console.log("First Tier - $" + payable);
-
     // Second Tier - Second $180,000   
-    if ( valuation > QUANTUM) 
-    {
+    if ( valuation > QUANTUM) {
         payable += ((valuation-QUANTUM > QUANTUM) ? QUANTUM : valuation-QUANTUM) * SECOND_TIER;
-    
-        console.log("Second Tier - $" + payable);
     }
-
     // Third Tier - Remaining
-    if ( valuation > QUANTUM * 2 )
-    {
+    if ( valuation > QUANTUM * 2 ){
         payable += (valuation - ( QUANTUM * 2 )) * THIRD_TIER;
-    
-        console.log("Third Tier - $" + payable);
     }
-
     return payable;
 }
 
 // Resident Type: 0 - SC, 1 - PR, 2 - FR
 function calculateABSD(valuation, residentType, propertyCount) {
     var payable = 0;
-
     // Singapore Citizen
     if ( residentType == 0 ) {
         if ( propertyCount == 2 )
@@ -56,32 +44,38 @@ function calculateABSD(valuation, residentType, propertyCount) {
     }
     else 
         console.log("Invalid Resident Type - " + residentType);
-
-    console.log("ABSD - $" + payable);    
     return payable;
 }
 
-function compute() {
-    var stampDutyEl = document.getElementById('stampDuty');
-    var valuation = document.getElementById('value').value;
-    var propCountEl = document.getElementById("propCount");
+// Calculate Seller Stamp Duty
+//function calculateSSD(purchaseDate, sellingDate, valuation)
+//{
+ //   if ( )
+//}
+
+function computeBSD(page) {
+    var stampDutyEl = page.querySelector("#stampDuty");
+    var valuation = page.querySelector('#value').value;
+    var propCountEl = page.querySelector("#propCount");
     var propCount = propCountEl.options[propCountEl.selectedIndex].value;
-    var residentType = document.querySelector('input[name="residentRb"]:checked').value;
+    var residentType = document.querySelector('input[class="residentRb"]:checked').value;
 
     calculateABSD(valuation, residentType, propCount);
     stampDutyEl.innerHTML = "$" + ( calculateBSD(valuation) + calculateABSD(valuation, residentType, propCount) );
-    console.log("Changes");
+    console.log("Changes - " +  valuation);
 }
 
-var valueEl = document.getElementById('value');
-valueEl.addEventListener('change', compute, false);
+document.addEventListener("init", function(event) {
+    var page = event.target;
 
-var propCountEl = document.getElementById('propCount');
-propCountEl.addEventListener('change', compute, false);
-
-var residentTypeEls = document.getElementsByName('residentRb')
-residentTypeEls.forEach(function(element) {
-    element.addEventListener('change', compute, false);
-}, this);
-
-compute()
+    if (page.matches('#BSDPage')) {
+        page.querySelector('#value').addEventListener("change", function() { computeBSD(page) } );
+        page.querySelector('#propCount').addEventListener("change", function() { computeBSD(page) });
+        page.querySelectorAll(".residentRb").forEach(function(element) {
+            element.addEventListener('change', function() { computeBSD(page) }, false);
+        }, this);
+    }
+    else if (page.matches('#SSDPage')) {
+        console.log("SSD")
+    }
+});
